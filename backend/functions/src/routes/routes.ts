@@ -73,7 +73,7 @@ routes.post("/fortunecookie", async (req, res) => {
     res.status(500).json({ message: "Fortune not posted -___-" });
   }
 });
-
+//need to fix the put - cannot get by id for some reason//
 routes.put("/fortunecookie/:id", async (req, res) => {
   const id = req.params.id;
   const updateFortune = req.body as FortuneCookie;
