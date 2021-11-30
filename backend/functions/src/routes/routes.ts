@@ -37,14 +37,14 @@ routes.get("/fortunecookie", async (req, res) => {
   }
 });
 //localhost:5001/carnival-app-b84f4/us-central1/api/fortunecookie?id=61a30a8c220033503f65a2
-
+//http://localhost:5001/carnival-app-b84f4/us-central1/api/fortunecookie/61a30a8c220033503f65a2f6
 http: routes.get("/fortunecookie/:id", async (req, res) => {
   const id = req.params.id;
   try {
     const client = await getClient();
     const checkFortune = await client
       .db()
-      .collection<FortuneCookie>("shoutouts")
+      .collection<FortuneCookie>("fortunecookie")
       .findOne({ _id: new ObjectId(id) });
     if (checkFortune) {
       res.json(checkFortune);
@@ -82,7 +82,7 @@ routes.put("/fortunecookie/:id", async (req, res) => {
     const client = await getClient();
     const result = await client
       .db()
-      .collection<FortuneCookie>("shoutouts")
+      .collection<FortuneCookie>("fortunecookie")
       .replaceOne({ _id: new ObjectId(id) }, updateFortune);
     if (result.modifiedCount === 0) {
       res.status(404).json({ message: "Fortune not found (╯°□°)╯︵ ┻━┻" });
