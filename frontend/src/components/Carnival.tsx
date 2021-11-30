@@ -2,20 +2,33 @@ import React, { FormEvent, useEffect, useState } from "react";
 import FortuneCookie from "../models/Fortune";
 import { fetchFortunes } from "../services/Fortunes";
 import { Link } from "react-router-dom";
+import { Drink, DrinkList } from "../models/Drink";
+import { fetchRandomDrink } from "../services/Drinks";
 
 export default function ViewFortunes() {
   const [fortunes, setFortunes] = useState<FortuneCookie[]>([]);
+  const [drinks, setDrinks] = useState<Drink[]>([]);
   //   const [to, setTo] = useState("");
   //   const [from, setFrom] = useState("");
   //   const [message, setMsg] = useState("");
 
-  function getFortunes() {
+  function getFortune() {
     fetchFortunes().then((data) => {
       setFortunes(data);
     });
   }
   useEffect(() => {
-    getFortunes();
+    getFortune();
+  }, []);
+
+  function getDrink() {
+    fetchRandomDrink().then((data) => {
+      setDrinks(data);
+    });
+  }
+
+  useEffect(() => {
+    getDrink();
   }, []);
 
   //   function handleSubmit(e: FormEvent) {
@@ -40,6 +53,14 @@ export default function ViewFortunes() {
             </p>
             <p>color: {fortune.color}</p>
             <p>number: {fortune.number}</p>
+          </ol>
+        ))}
+      </div>
+      <div>
+        <h2>Tipsy Time</h2>
+        {drinks.map((drink) => (
+          <ol>
+            <p style={{ fontWeight: "bold" }}>Enjoy a {drink.strDrink}</p>
           </ol>
         ))}
       </div>
