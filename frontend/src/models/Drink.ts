@@ -1,5 +1,6 @@
 export interface Drink {
   results: any;
+  idDrink: string;
   strDrink: string;
   strCategory: string;
   strInstructions: string;
