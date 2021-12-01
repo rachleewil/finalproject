@@ -60,10 +60,14 @@ export default function ViewFortunes() {
         <h2>Tipsy Time</h2>
         {drinks.map((drink) => (
           <ol>
-            <p style={{ fontWeight: "bold" }}>Enjoy a {drink.strDrink}</p>
-            <a href={"https://www.thecocktaildb.com/drink/" + drink.idDrink}>
+            <p style={{ fontWeight: "bold" }}>Enjoy a {drink.strDrink}!</p>
+            <a
+              target="_blank"
+              href={"https://www.thecocktaildb.com/drink/" + drink.idDrink}
+              rel="noreferrer"
+            >
               <img
-                className="movieImg"
+                className="drinkImg"
                 src={drink.strDrinkThumb + "/preview"}
                 alt="cocktail"
               />
