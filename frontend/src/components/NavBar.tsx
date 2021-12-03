@@ -11,7 +11,7 @@ function NavBar() {
             </div>
             <div className="NavBarLinks">
               <a><Link to="/favorites">Favorites</Link></a>
-              <a><Link to="/profile"> My Profile</Link></a>
+              <a><Link to="/profile">My Profile</Link></a>
               <a><Link to="/">Sign Out</Link></a>
             </div>
           </div>     

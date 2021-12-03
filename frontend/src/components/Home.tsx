@@ -3,15 +3,17 @@ import { Link } from "react-router-dom"; {/* added Link */}
 
 function Home() {
   return (
-    <>
         <div>
-            <h3>Drinks</h3>
-            <img className="drinks" src="fair_640.jpg" width="60" height="60"/>
+            <h2>Drinks</h2>
+            <Link to="/drinks"><img className="drinks" src="neondrink.jpg" width="300" height="200"/></Link>
+
+            <h2>Fortunes</h2>
+            <Link to="/fortunes"><img className="drinks" src="fortuneteller.jpg" width="300" height="200"/></Link>
         </div>
-    </>
   );
 }
 
 export default Home;
+
 
 
