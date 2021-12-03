@@ -1,7 +1,8 @@
 import React, { FormEvent, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { Drink, DrinkList } from "../models/Drink";
 import { fetchRandomDrink } from "../services/Drinks";
+import { FavoritesContext, useFavoritesContext } from "../context/DrinkFavorites";
+import { Link } from "react-router-dom";
 
 export default function ViewDrinks() {
   const [drinks, setDrinks] = useState<Drink[]>([]);
@@ -24,6 +25,8 @@ export default function ViewDrinks() {
   //     sendLove({ to, from, message });
   //   }
 
+  const { addFavorite } = useFavoritesContext(); 
+
   return (
     <div>
       <nav>
@@ -45,6 +48,7 @@ export default function ViewDrinks() {
                 alt="cocktail"
               />
             </a>
+            <button className="addButton" onClick={() => addFavorite(drink)}>Add to Favorites</button>
           </ol>
         ))}
       </div>
