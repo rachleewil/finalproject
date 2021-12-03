@@ -1,7 +1,6 @@
 import { FormEvent, useEffect, useState } from "react";
 import { Users } from "../models/Users";
 import { fetchUser } from "../services/Users";
-import FormInput from "./FormInput";
 
 interface Props {
   initialTo?: string;
@@ -30,8 +29,7 @@ function LoginForm({ initialTo = "" }: Props) {
   return (
     <form className="SignInForm" onSubmit={handleSubmit}>
       <h2>Time to Sign In</h2>
-      <FormInput label="Username" id="username" value={username} onChange={setUsername} required minLength={2}/>
-      <FormInput label="Password" id="password" value={password} onChange={setPassword} required minLength={2}/>
+     
       <p className="FormInput">
         <label htmlFor="checkbox">Are you over the age of 21</label>
         <input type="checkbox" id="checkbox" checked={legal}  onChange={handleChange}/>

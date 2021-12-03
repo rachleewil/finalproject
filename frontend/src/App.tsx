@@ -5,8 +5,8 @@ import ViewFortunes from "./components/Carnival";
 import LoginForm from "./components/LoginForm";
 import NavBar from './components/NavBar';
 import Home from './components/Home';
-import ViewDrinks from './components/Drinks'
-
+import ViewDrinks from './components/Drinks';
+import Favorites from './components/Favorites'
 
 function App() {
   return (
@@ -18,6 +18,7 @@ function App() {
           <Route path="/home" element={<Home /> } />
           <Route path="/fortunes" element={<ViewFortunes />} />
           <Route path="/drinks" element={<ViewDrinks />} />
+          <Route path="/favorites" element={<Favorites />} />
         </Routes>
       </Router>
     </div>
