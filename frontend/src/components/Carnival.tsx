@@ -8,9 +8,34 @@ import { fetchRandomDrink } from "../services/Drinks";
 export default function ViewFortunes() {
   const [fortunes, setFortunes] = useState<FortuneCookie[]>([]);
   const [drinks, setDrinks] = useState<Drink[]>([]);
-  //   const [to, setTo] = useState("");
-  //   const [from, setFrom] = useState("");
-  //   const [message, setMsg] = useState("");
+  const [randomFortune, setRandomFortune] = useState<FortuneCookie>();
+  const [onePost, setOnePost] = useState(""); //one more hook for storing current random post
+
+  //testing
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const fetchingPosts = await fetch(
+          "http://localhost:5001/carnival-app-b84f4/us-central1/api/fortunecookie/"
+        );
+        const fortunes = await fetchingPosts.json();
+
+        setFortunes(fortunes);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchPosts();
+  }, []);
+
+  const handleClick = () => {
+    const random = fortunes[Math.floor(Math.random() * fortunes.length)];
+    setRandomFortune(random); //value assigned here
+  };
+  console.log();
+
+  //finish testing
 
   function getFortune() {
     fetchFortunes().then((data) => {
@@ -45,7 +70,13 @@ export default function ViewFortunes() {
           </li>
         </ul>
       </nav>
-      <div>
+      <div id="RandomFortunesOnDemand">
+        <button onClick={handleClick}>Get Fortune</button>
+        <p>Fortune: {randomFortune?.fortune} </p>
+        <p>Lucky Color: {randomFortune?.color}</p>
+      </div>
+      <img className="ball" src="crystalball.png" width="600" height="600" />
+      {/*  <div id="all fortunes">
         {fortunes.map((fortune) => (
           <ol>
             <p style={{ fontWeight: "bold" }}>
@@ -55,12 +86,12 @@ export default function ViewFortunes() {
             <p>number: {fortune.number}</p>
           </ol>
         ))}
-      </div>
+      </div> */}
       <div>
-        <h2>Tipsy Time</h2>
+        <h2>Your Lucky Drink:</h2>
         {drinks.map((drink) => (
           <ol>
-            <p style={{ fontWeight: "bold" }}>Enjoy a {drink.strDrink}!</p>
+            <p style={{ fontWeight: "bold" }}>{drink.strDrink}!</p>
             <a
               target="_blank"
               href={"https://www.thecocktaildb.com/drink/" + drink.idDrink}
