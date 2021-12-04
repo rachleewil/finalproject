@@ -1,9 +1,10 @@
-import React, { FormEvent, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import FortuneCookie from "../models/Fortune";
 import { fetchFortunes } from "../services/Fortunes";
 import { Link } from "react-router-dom";
 import { Drink, DrinkList } from "../models/Drink";
 import { fetchRandomDrink } from "../services/Drinks";
+import "./Carnival.css";
 
 export default function ViewFortunes() {
   const [fortunes, setFortunes] = useState<FortuneCookie[]>([]);
@@ -66,16 +67,41 @@ export default function ViewFortunes() {
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/Home">Home</Link>
           </li>
         </ul>
       </nav>
-      <div id="RandomFortunesOnDemand">
-        <button onClick={handleClick}>Get Fortune</button>
-        <p>Fortune: {randomFortune?.fortune} </p>
-        <p>Lucky Color: {randomFortune?.color}</p>
+      <div id="fortune-container">
+        <div id="RandomFortunesOnDemand">
+          {/* <button onClick={handleClick}>Get Fortune</button> */}
+          <p>
+            <span style={{ fontWeight: "bold" }}>Fortune:</span>{" "}
+            {randomFortune?.fortune}{" "}
+          </p>
+          <p>
+            <span style={{ fontWeight: "bold" }}>Lucky Color:</span>{" "}
+            {randomFortune?.color}
+          </p>
+          <p>{randomFortune?.message}</p>
+        </div>
+        <input
+          id="crystal-ball"
+          type="image"
+          alt="click me"
+          src="crystalball.png"
+          width="600"
+          height="600"
+          name="ballBtn"
+          onClick={handleClick}
+        ></input>
+        {/*  <img
+          className="ball"
+          alt="crystal-ball"
+          src="crystalball.png"
+          width="600"
+          height="600"
+        /> */}
       </div>
-      <img className="ball" src="crystalball.png" width="600" height="600" />
       {/*  <div id="all fortunes">
         {fortunes.map((fortune) => (
           <ol>
@@ -87,7 +113,7 @@ export default function ViewFortunes() {
           </ol>
         ))}
       </div> */}
-      <div>
+      {/*   <div id="fortune-drink">
         <h2>Your Lucky Drink:</h2>
         {drinks.map((drink) => (
           <ol>
@@ -105,7 +131,7 @@ export default function ViewFortunes() {
             </a>
           </ol>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }
