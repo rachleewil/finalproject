@@ -3,5 +3,5 @@ export default interface FortuneCookie {
   fortune: string;
   color: string;
   number: number;
+  message: string;
 }
-

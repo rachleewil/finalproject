@@ -1,0 +1,35 @@
+/* body {
+  background-image: url(http://localhost:3000/starsBG.jpg);
+}
+ */
+#fortune-container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+#RandomFortunesOnDemand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: black;
+  /* text-shadow: 0 0 3px purple; */
+  font-size: 18px;
+}
+
+@media only screen and (max-width: 600px) {
+  /* For tablets: */
+  #crystal-ball {
+    width: 450px;
+    height: 450px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  /* For mobile phones: */
+  #crystal-ball {
+    width: 300px;
+    height: 300px;
+  }
+}
