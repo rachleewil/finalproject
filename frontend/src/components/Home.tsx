@@ -6,7 +6,13 @@ function Home() {
     <div>
       <h2>Drinks</h2>
       <Link to="/drinks">
-        <img className="drinks" src="neondrink.jpg" width="300" height="200" />
+        <img
+          className="drinks"
+          src="neondrink.jpg"
+          width="300"
+          height="200"
+          alt="bar link"
+        />
       </Link>
 
       <h2>Fortunes</h2>
@@ -16,6 +22,7 @@ function Home() {
           src="fortuneteller.jpg"
           width="300"
           height="200"
+          alt="fortune-teller"
         />
       </Link>
     </div>
