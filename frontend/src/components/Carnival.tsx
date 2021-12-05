@@ -65,11 +65,7 @@ export default function ViewFortunes() {
   return (
     <div className="navigation">
       <nav>
-        <ul>
-          <li>
-            <Link to="/Home">Home</Link>
-          </li>
-        </ul>
+        <Link to="/Home">Home</Link>
       </nav>
       <div id="fortune-container">
         <div id="RandomFortunesOnDemand">
@@ -94,13 +90,27 @@ export default function ViewFortunes() {
           name="ballBtn"
           onClick={handleClick}
         ></input>
-        <div id="make-a-fortune">
-          <img
-            className="ball"
-            alt="crystal-ball"
-            src="smallcrystal.png"
-            width="100"
-          />
+        {/* <div id="make-a-fortune">
+          <Link to="/createFortunes">
+            <img
+              className="ball"
+              alt="crystal-ball"
+              src="smallcrystal.png"
+              width="100"
+            />
+            <p id="smallCrystal-text">?</p>
+          </Link>
+        </div> */}
+        <div id="make-a-fortune-two">
+          <Link to="/oracle">
+            <img
+              className="ball"
+              alt="crystal-ball"
+              src="smallcrystal.png"
+              width="100"
+            />
+            <p id="smallCrystal-text">I am a Oracle</p>
+          </Link>
         </div>
         {/*  <img
           className="ball"

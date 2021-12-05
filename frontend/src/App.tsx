@@ -8,6 +8,7 @@ import Home from "./components/Home";
 import ViewDrinks from "./components/Drinks";
 import Favorites from "./components/Favorites";
 import PostFortunes from "./components/PostFortune";
+import AddFortuneFormRoute from "./components/routes/AllFortunesRoutes";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/drinks" element={<ViewDrinks />} />
           <Route path="/favorites" element={<Favorites />} />
           <Route path="/createFortunes" element={<PostFortunes />} />
+          <Route path="/oracle" element={<AddFortuneFormRoute />} />
         </Routes>
       </Router>
     </div>
