@@ -1,6 +1,8 @@
 .ShoutOutList ul {
   list-style: none;
   padding: 0;
+  width: 50%;
+  margin: auto;
 }
 
 .ShoutOutList li {
