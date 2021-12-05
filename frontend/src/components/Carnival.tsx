@@ -94,6 +94,14 @@ export default function ViewFortunes() {
           name="ballBtn"
           onClick={handleClick}
         ></input>
+        <div id="make-a-fortune">
+          <img
+            className="ball"
+            alt="crystal-ball"
+            src="smallcrystal.png"
+            width="100"
+          />
+        </div>
         {/*  <img
           className="ball"
           alt="crystal-ball"
