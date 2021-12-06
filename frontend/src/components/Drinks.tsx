@@ -34,6 +34,7 @@ export default function ViewDrinks() {
       </nav>
       <div>
         <h2>Tipsy Time</h2>
+        <p>Click below for the recipe</p>
         {drinks.map((drink) => (
           <ol>
             <p style={{ fontWeight: "bold" }}>Enjoy a {drink.strDrink}!</p>
