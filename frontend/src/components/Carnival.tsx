@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
+import "./Carnival.css";
 import FortuneCookie from "../models/Fortune";
 import { fetchFortunes } from "../services/Fortunes";
 import { Link } from "react-router-dom";
 import { Drink, DrinkList } from "../models/Drink";
 import { fetchRandomDrink } from "../services/Drinks";
-import "./Carnival.css";
 
 export default function ViewFortunes() {
   const [fortunes, setFortunes] = useState<FortuneCookie[]>([]);
@@ -67,6 +67,8 @@ export default function ViewFortunes() {
       <nav>
         <Link to="/Home">Home</Link>
       </nav>
+      <h2>Welcome to the Fortune Teller!</h2>
+      <p>Click below to learn your fate. </p>
       <div id="fortune-container">
         <div id="RandomFortunesOnDemand">
           {/* <button onClick={handleClick}>Get Fortune</button> */}

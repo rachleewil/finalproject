@@ -26,11 +26,7 @@ export default function PostFortunes() {
   return (
     <div className="outer">
       <nav>
-        <ul>
-          <li>
-            <Link to="/Home">Home</Link>
-          </li>
-        </ul>
+        <Link to="/home">Home</Link>
       </nav>
       <div>
         {future.map((future, index) => (

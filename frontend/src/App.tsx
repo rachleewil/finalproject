@@ -21,8 +21,8 @@ function App() {
           <Route path="/fortunes" element={<ViewFortunes />} />
           <Route path="/drinks" element={<ViewDrinks />} />
           <Route path="/favorites" element={<Favorites />} />
-          <Route path="/createFortunes" element={<PostFortunes />} />
-          <Route path="/oracle" element={<AddFortuneFormRoute />} />
+          <Route path="/createfortune" element={<PostFortunes />} />
+          <Route path="/addfortune" element={<AddFortuneFormRoute />} />
         </Routes>
       </Router>
     </div>

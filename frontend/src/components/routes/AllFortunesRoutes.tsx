@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
+import "./AllFortuneRoutes.css";
 import AddFortuneForm from "../AddFortuneForm";
 import FortuneList from "../FortuneList";
 import FortuneCookie from "../../models/Fortune";
 import { fetchFortunes } from "../../services/Fortunes";
 import { Link } from "react-router-dom";
-import "./AllFortuneRoutes.css";
 
 function AddFortuneFormRoute() {
   const [fortunes, setFortunes] = useState<FortuneCookie[]>([]);
@@ -16,7 +16,8 @@ function AddFortuneFormRoute() {
 
   return (
     <div className="AllShoutOutsRoute">
-      <h2>All Fortunes</h2>
+      <h2>Create a Fortune</h2>
+      <p>Someone's fate is in your hands. You are in control now.</p>
       <nav id="Create-Fortune-Nav">
         <Link id="Home" to="/Home">
           Home
@@ -25,8 +26,8 @@ function AddFortuneFormRoute() {
           Get Your Fortune
         </Link>
       </nav>
-      <FortuneList shoutOuts={fortunes} />
       <AddFortuneForm onAdd={loadFortunes} />
+      <FortuneList shoutOuts={fortunes} />
     </div>
   );
 }

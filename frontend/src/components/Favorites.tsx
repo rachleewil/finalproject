@@ -20,7 +20,7 @@ interface Props {
         return (
             <>
             <div className="RecipeFavorites">
-                <h2 id="title">Favorite Recipes</h2>
+                <h2 id="title">Favorite Drinks</h2>
                 <div className="grid">
                     {favorites.map((item) => (
                        <div className = "recipeCard" key = {item.strDrink} >
