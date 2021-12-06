@@ -16,8 +16,6 @@ function AddFortuneFormRoute() {
 
   return (
     <div className="AllShoutOutsRoute">
-      <h2>Create a Fortune</h2>
-      <p>Someone's fate is in your hands. You are in control now.</p>
       <nav id="Create-Fortune-Nav">
         <Link id="Home" to="/Home">
           Home
@@ -27,7 +25,10 @@ function AddFortuneFormRoute() {
         </Link>
       </nav>
       <AddFortuneForm onAdd={loadFortunes} />
-      <FortuneList shoutOuts={fortunes} />
+      <div id="fortunelist">
+        <h2 id="listheading">Complete List of Fotunes</h2>
+        <FortuneList shoutOuts={fortunes} />
+      </div>
     </div>
   );
 }

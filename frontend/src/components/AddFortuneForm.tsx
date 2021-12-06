@@ -33,9 +33,10 @@ function AddShoutOutForm({ initialTo = "", onAdd }: Props) {
   return (
     <>
       <form className="AddShoutOutForm" onSubmit={handleSubmit}>
-        <h3>Create a Fortune</h3>
+        <h2>Create a Fortune</h2>
+        <p>Someone's fate is in your hands. You are in control now.</p>
         <FormInput
-          label="Fortune"
+          label="Fortune:"
           id="AddShoutOutForm__to"
           value={fortune}
           onChange={setFortune}
@@ -56,13 +57,12 @@ function AddShoutOutForm({ initialTo = "", onAdd }: Props) {
             id="AddShoutOutForm__shoutout"
             value={message}
             onChange={(e) => setMsg(e.target.value)}
-            required
             minLength={2}
             rows={1}
           />
         </p>
         <p>
-          <button>Submit Fortune!</button>
+          <button id="submitbutton"> Submit Fortune!</button>
         </p>
       </form>
     </>
