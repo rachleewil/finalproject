@@ -1,30 +1,44 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Home.css";
+
 function Home() {
   return (
     <div>
-      <h2>Drinks</h2>
-      <Link to="/drinks">
-        <img
-          className="drinks"
-          src="neondrink.jpg"
-          width="300"
-          height="200"
-          alt="bar link"
-        />
-      </Link>
+      <h2 id="hometitle">Welcome to the Carnival!</h2> 
 
-      <h2>Fortunes</h2>
-      <Link to="/fortunes">
-        <img
-          className="drinks"
-          src="fortuneteller.jpg"
-          width="300"
-          height="200"
-          alt="fortune-teller"
-        />
-      </Link>
+      <div id="drinksection">
+        <h2 >Let's Drink!</h2>
+        <p>Go ahead and enjoy a delicious cocktail beverage.</p>
+        <Link to="/drinks">
+          <img
+            className="drinks"
+            src="neondrink.jpg"
+            alt="bar"
+          />
+        </Link>
+      </div>
+
+      <div id="fortunesection">
+        <h2>Let's get Lucky!</h2>
+        <p>Don't let fate slip through your fingers. Find out your fortune now.</p>
+        <Link to="/fortunes">
+          <img
+            className="fortunes"
+            src="fortuneteller.jpg"
+            alt="fortune-teller"
+          />
+        </Link>
+      </div>
+
+      <div id="background">
+          <img
+            src="carnival.png"
+            alt="carnival background image"
+            width="1280"
+            height="600"
+          />
+      </div>
     </div>
   );
 }

@@ -1,10 +1,11 @@
+import "./AddFortuneForm.css";
 import { FormEvent, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import FortuneCookie from "../models/Fortune";
 import { createFortune } from "../services/Fortunes";
 import FormInput from "./FormInputFortunes";
-import "./AddFortuneForm.css";
 import Home from "./Home";
+
 interface Props {
   initialTo?: string;
   onAdd?: (shoutout: FortuneCookie) => void;
