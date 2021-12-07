@@ -104,7 +104,7 @@ export default function ViewFortunes() {
           </Link>
         </div> */}
         <div id="make-a-fortune-two">
-          <Link to="/oracle">
+          <Link to="/addFortune">
             <img
               className="ball"
               alt="crystal-ball"
