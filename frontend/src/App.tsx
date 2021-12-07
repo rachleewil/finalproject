@@ -8,20 +8,24 @@ import Home from "./components/Home";
 import ViewDrinks from "./components/Drinks";
 import Favorites from "./components/Favorites";
 import PostFortunes from "./components/PostFortune";
+import FavoritesList from "./components/FavoritesList";
+import FavoritesProvider from "./context/FavoritesContext";
 
 function App() {
   return (
     <div className="App">
       <Router>
         <NavBar />
-        <Routes>
-          <Route path="/login" element={<LoginForm />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/fortunes" element={<ViewFortunes />} />
-          <Route path="/drinks" element={<ViewDrinks />} />
-          <Route path="/favorites" element={<Favorites />} />
-          <Route path="/createFortunes" element={<PostFortunes />} />
-        </Routes>
+        <FavoritesProvider>
+          <Routes>
+            <Route path="/login" element={<LoginForm />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/fortunes" element={<ViewFortunes />} />
+            <Route path="/drinks" element={<ViewDrinks />} />
+            <Route path="/favorites" element={<FavoritesList />} />
+            <Route path="/createFortunes" element={<PostFortunes />} />
+          </Routes>
+        </FavoritesProvider>
       </Router>
     </div>
   );

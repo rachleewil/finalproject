@@ -1,7 +1,8 @@
-import React, { FormEvent, useEffect, useState } from "react";
+import React, { FormEvent, useContext, useEffect, useState } from "react";
 import { Drink, DrinkList } from "../models/Drink";
 import { fetchRandomDrink } from "../services/Drinks";
-import { FavoritesContext, useFavoritesContext } from "../context/DrinkFavorites";
+// import { FavoritesContext, useFavoritesContext } from "../context/DrinkFavorites";
+import { Favorites } from "../context/FavoritesContext";
 import { Link } from "react-router-dom";
 
 export default function ViewDrinks() {
@@ -9,7 +10,7 @@ export default function ViewDrinks() {
   //   const [to, setTo] = useState("");
   //   const [from, setFrom] = useState("");
   //   const [message, setMsg] = useState("");
-
+  const [cocktail, setCocktail] = useState<Drink>();
   function getDrink() {
     fetchRandomDrink().then((data) => {
       setDrinks(data);
@@ -25,30 +26,52 @@ export default function ViewDrinks() {
   //     sendLove({ to, from, message });
   //   }
 
-  const { addFavorite } = useFavoritesContext(); 
-
+  const { addToFavorites, removeFromFavorites, favoritesList } =
+    useContext(Favorites);
+  const thisCocktailIsAFavorite: boolean = favoritesList.some(
+    (favorite) => favorite.idDrink === cocktail?.idDrink
+  );
   return (
     <div>
       <nav>
-          <Link to="/home">Home</Link>
+        <Link to="/home">Home</Link>
       </nav>
       <div>
         <h2>Tipsy Time</h2>
-        {drinks.map((drink) => (
+        {drinks.map((cocktail) => (
           <ol>
-            <p style={{ fontWeight: "bold" }}>Enjoy a {drink.strDrink}!</p>
+            <p style={{ fontWeight: "bold" }}>Enjoy a {cocktail.strDrink}!</p>
             <a
               target="_blank"
-              href={"https://www.thecocktaildb.com/drink/" + drink.idDrink}
+              href={"https://www.thecocktaildb.com/drink/" + cocktail.idDrink}
               rel="noreferrer"
             >
               <img
                 className="drinkImg"
-                src={drink.strDrinkThumb + "/preview"}
+                src={cocktail.strDrinkThumb + "/preview"}
                 alt="cocktail"
               />
             </a>
-            <button className="addButton" onClick={() => addFavorite(drink)}>Add to Favorites</button>
+            {thisCocktailIsAFavorite ? (
+              <button
+                className="addButton"
+                onClick={() => removeFromFavorites(cocktail?.idDrink!)}
+              >
+                Remove Favorite
+              </button>
+            ) : (
+              <button
+                onClick={() => {
+                  console.log(cocktail);
+                  if (cocktail?.idDrink) {
+                    addToFavorites(cocktail);
+                    console.log(favoritesList);
+                  }
+                }}
+              >
+                Add to Favorites
+              </button>
+            )}
           </ol>
         ))}
       </div>
