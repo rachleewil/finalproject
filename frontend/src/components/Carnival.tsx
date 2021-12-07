@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
+import "./Carnival.css";
 import FortuneCookie from "../models/Fortune";
 import { fetchFortunes } from "../services/Fortunes";
 import { Link } from "react-router-dom";
 import { Drink, DrinkList } from "../models/Drink";
 import { fetchRandomDrink } from "../services/Drinks";
-import "./Carnival.css";
 
 export default function ViewFortunes() {
   const [fortunes, setFortunes] = useState<FortuneCookie[]>([]);
@@ -65,12 +65,10 @@ export default function ViewFortunes() {
   return (
     <div className="navigation">
       <nav>
-        <ul>
-          <li>
-            <Link to="/Home">Home</Link>
-          </li>
-        </ul>
+        <Link to="/Home">Home</Link>
       </nav>
+      <h2>Welcome to the Fortune Teller!</h2>
+      <p>Click below to learn your fate. </p>
       <div id="fortune-container">
         <div id="RandomFortunesOnDemand">
           {/* <button onClick={handleClick}>Get Fortune</button> */}
@@ -94,6 +92,28 @@ export default function ViewFortunes() {
           name="ballBtn"
           onClick={handleClick}
         ></input>
+        {/* <div id="make-a-fortune">
+          <Link to="/createFortunes">
+            <img
+              className="ball"
+              alt="crystal-ball"
+              src="smallcrystal.png"
+              width="100"
+            />
+            <p id="smallCrystal-text">?</p>
+          </Link>
+        </div> */}
+        <div id="make-a-fortune-two">
+          <Link to="/addFortune">
+            <img
+              className="ball"
+              alt="crystal-ball"
+              src="smallcrystal.png"
+              width="100"
+            />
+            <p id="smallCrystal-text">I am a Oracle</p>
+          </Link>
+        </div>
         {/*  <img
           className="ball"
           alt="crystal-ball"

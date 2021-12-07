@@ -1,0 +1,45 @@
+.ShoutOutList ul {
+  list-style: none;
+  padding: 0;
+  width: 50%;
+  margin: auto;
+}
+
+.ShoutOutList li {
+  background-color: white;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  padding: 0.5em 1em;
+}
+
+.ShoutOutList h3 {
+  margin: 0;
+}
+
+.ShoutOutList p {
+  margin: 0;
+}
+
+.ShoutOutList__from {
+  color: #333;
+}
+
+.ShoutOutList__from img {
+  border-radius: 50%;
+  height: 2em;
+  vertical-align: middle;
+}
+
+.ShoutOutList .ShoutOutList__text {
+  margin-top: 8px;
+}
+
+.ShoutOutList .ShoutOutList__image {
+  margin-top: 8px;
+}
+
+.ShoutOutList__image img {
+  max-width: 100%;
+  max-height: 50vh;
+}

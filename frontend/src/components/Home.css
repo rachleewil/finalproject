@@ -1,7 +1,58 @@
-body {
-  background-image: url(http://localhost:3000/carnival.png);
-  background-repeat: no-repeat;
-  /* background-size: auto; */
+/* body {
+    background-image: url(http://localhost:3000/carnival.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-size: 1280px 600px;
+    background-position: 50%;
+} */
+
+/* html {
+  min-height: 100%;   
+} */
+
+#background {
+  background: no-repeat center bottom;   
   background-size: 1280px 600px;
-  background-position: 50% 815%;
+  margin-top: -100px;
+}
+
+
+#hometitle {
+  font-size: 32px;
+  margin-top: 30px;
+}
+
+#fortunesection {
+  margin-right: 700px;
+  /* margin-top: -300px;  */
+ margin-top: -320px;
+}
+
+.fortunes {
+  width: 300px;
+  height: 200px;
+  /* margin-right: 700px; */
+  /* margin-top: -500px;  */
+  border-radius: 50%;
+}
+
+#drinksection {
+  margin-left: 700px;
+}
+
+.drinks {
+  width: 300px;
+  height: 200px;
+  /* margin-left: 300px; */
+  /* margin-top: -200px; */
+  border-radius: 50%;
+}
+
+h2 {
+  font-family: cursive;
+  color: rgba(255, 0, 0);
+}
+
+p {
+  font-style: italic;
 }
