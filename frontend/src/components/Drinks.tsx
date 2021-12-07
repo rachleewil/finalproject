@@ -11,6 +11,7 @@ export default function ViewDrinks() {
   //   const [from, setFrom] = useState("");
   //   const [message, setMsg] = useState("");
   const [cocktail, setCocktail] = useState<Drink>();
+
   function getDrink() {
     fetchRandomDrink().then((data) => {
       setDrinks(data);
@@ -21,6 +22,9 @@ export default function ViewDrinks() {
     getDrink();
   }, []);
 
+  const handleClick = () => {
+    getDrink();
+  };
   //   function handleSubmit(e: FormEvent) {
   //     e.preventDefault();
   //     sendLove({ to, from, message });
@@ -32,49 +36,54 @@ export default function ViewDrinks() {
     (favorite) => favorite.idDrink === cocktail?.idDrink
   );
   return (
-    <div>
-      <nav>
-        <Link to="/home">Home</Link>
-      </nav>
+    <>
       <div>
-        <h2>Tipsy Time</h2>
-        {drinks.map((cocktail) => (
-          <ol>
-            <p style={{ fontWeight: "bold" }}>Enjoy a {cocktail.strDrink}!</p>
-            <a
-              target="_blank"
-              href={"https://www.thecocktaildb.com/drink/" + cocktail.idDrink}
-              rel="noreferrer"
-            >
-              <img
-                className="drinkImg"
-                src={cocktail.strDrinkThumb + "/preview"}
-                alt="cocktail"
-              />
-            </a>
-            {thisCocktailIsAFavorite ? (
-              <button
-                className="addButton"
-                onClick={() => removeFromFavorites(cocktail?.idDrink!)}
+        <nav>
+          <Link to="/home">Home</Link>
+        </nav>
+        <div>
+          <h2>Tipsy Time</h2>
+          {drinks.map((cocktail) => (
+            <ol>
+              <p style={{ fontWeight: "bold" }}>Enjoy a {cocktail.strDrink}!</p>
+              <a
+                target="_blank"
+                href={"https://www.thecocktaildb.com/drink/" + cocktail.idDrink}
+                rel="noreferrer"
               >
-                Remove Favorite
-              </button>
-            ) : (
-              <button
-                onClick={() => {
-                  console.log(cocktail);
-                  if (cocktail?.idDrink) {
-                    addToFavorites(cocktail);
-                    console.log(favoritesList);
-                  }
-                }}
-              >
-                Add to Favorites
-              </button>
-            )}
-          </ol>
-        ))}
+                <img
+                  className="drinkImg"
+                  src={cocktail.strDrinkThumb + "/preview"}
+                  alt="cocktail"
+                />
+              </a>
+              {thisCocktailIsAFavorite ? (
+                <button
+                  className="addButton"
+                  onClick={() => removeFromFavorites(cocktail?.idDrink!)}
+                >
+                  Remove Favorite
+                </button>
+              ) : (
+                <button
+                  onClick={() => {
+                    console.log(cocktail);
+                    if (cocktail?.idDrink) {
+                      addToFavorites(cocktail);
+                      console.log(favoritesList);
+                    }
+                  }}
+                >
+                  Add to Favorites
+                </button>
+              )}
+            </ol>
+          ))}
+        </div>
       </div>
-    </div>
+      <div>
+        <button onClick={handleClick}>Barkeep! Another Drink!</button>
+      </div>
+    </>
   );
 }

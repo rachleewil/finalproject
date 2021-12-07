@@ -12,10 +12,16 @@ export default function FavoritesList() {
       <ul>
         {favoritesList.map((favorite, index) => (
           <li key={index}>
-            <Link to={"/" + favorite.idDrink}>
+            {/* <Link to={"/" + favorite.idDrink}> */}
+            <a
+              target="_blank"
+              href={"https://www.thecocktaildb.com/drink/" + favorite.idDrink}
+              rel="noreferrer"
+            >
               <img src={favorite.strDrinkThumb + "/preview"} alt="drink" />
-              <h3>{favorite.strDrink}</h3>
-            </Link>
+            </a>
+            <h3>{favorite.strDrink}</h3>
+            {/* </Link> */}
             <button
               onClick={() => {
                 removeFromFavorites(favorite.idDrink);
