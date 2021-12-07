@@ -5,7 +5,6 @@ import FortuneList from "../FortuneList";
 import FortuneCookie from "../../models/Fortune";
 import { fetchFortunes } from "../../services/Fortunes";
 import { Link } from "react-router-dom";
-import Counter from "../Tokens";
 
 function AddFortuneFormRoute() {
   const [fortunes, setFortunes] = useState<FortuneCookie[]>([]);
