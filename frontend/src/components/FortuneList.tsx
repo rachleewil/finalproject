@@ -16,9 +16,9 @@ function FortuneList({ shoutOuts }: Props) {
         {shoutOuts.map((shout) => (
           <li key={shout._id}>
             <h3>Predictions from the Orcale</h3>
-            <p className="ShoutOutList__from">{shout.fortune}</p>
-            <p className="ShoutOutList__text">{shout.color}</p>
-            <p className="ShoutOutList__text">{shout.message}</p>
+            <p className="ShoutOutList__from"><b>Fortune:</b>{shout.fortune}</p>
+            <p className="ShoutOutList__text"><b>Lucky Color: </b>{shout.color}</p>
+            <p className="ShoutOutList__text"><b>Message: </b>{shout.message}</p>
           </li>
         ))}
       </ul>
