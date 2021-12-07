@@ -11,6 +11,8 @@ export default function ViewFortunes() {
   const [drinks, setDrinks] = useState<Drink[]>([]);
   const [randomFortune, setRandomFortune] = useState<FortuneCookie>();
   const [onePost, setOnePost] = useState(""); //one more hook for storing current random post
+  const [clicks, setClicks] = useState(5);
+  const [disabled, setDisabled] = useState(false);
 
   //testing
 
@@ -33,7 +35,16 @@ export default function ViewFortunes() {
   const handleClick = () => {
     const random = fortunes[Math.floor(Math.random() * fortunes.length)];
     setRandomFortune(random); //value assigned here
+    let buttonsubmit = document.getElementById("crystal-ball");
+    if (clicks === 1) {
+      setClicks(0); 
+      setDisabled(true)
+    }
+    else {
+      setClicks(clicks - 1);
+    }
   };
+
   console.log();
 
   //finish testing
@@ -69,6 +80,8 @@ export default function ViewFortunes() {
       </nav>
       <h2>Welcome to the Fortune Teller!</h2>
       <p>Click below to learn your fate. </p>
+
+      <p>Tokens Left: {clicks}</p>
       <div id="fortune-container">
         <div id="RandomFortunesOnDemand">
           {/* <button onClick={handleClick}>Get Fortune</button> */}
@@ -91,6 +104,7 @@ export default function ViewFortunes() {
           height="600"
           name="ballBtn"
           onClick={handleClick}
+          disabled={disabled}
         ></input>
         {/* <div id="make-a-fortune">
           <Link to="/createFortunes">
@@ -103,6 +117,7 @@ export default function ViewFortunes() {
             <p id="smallCrystal-text">?</p>
           </Link>
         </div> */}
+
         <div id="make-a-fortune-two">
           <Link to="/addFortune">
             <img
