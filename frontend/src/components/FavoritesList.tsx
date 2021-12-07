@@ -8,12 +8,12 @@ export default function FavoritesList() {
   console.log(favoritesList);
   return (
     <div>
-      <h2>Greetings to all</h2>
+      <h2>Your Favorite Drinks</h2>
       <ul>
         {favoritesList.map((favorite, index) => (
           <li key={index}>
             <Link to={"/" + favorite.idDrink}>
-              <img src={favorite.strDrinkThumb} />
+              <img src={favorite.strDrinkThumb + "/preview"} alt="drink" />
               <h3>{favorite.strDrink}</h3>
             </Link>
             <button
