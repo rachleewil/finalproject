@@ -37,10 +37,19 @@ export default function ViewFortunes() {
     setRandomFortune(random); //value assigned here
     let buttonsubmit = document.getElementById("crystal-ball");
     if (clicks === 1) {
-      setClicks(0); 
-      setDisabled(true)
+      setClicks(0);
+      setDisabled(true);
+    } else {
+      setClicks(clicks - 1);
     }
-    else {
+  };
+
+  const duckClick = () => {
+    let buttonsubmit = document.getElementById("duck-bullseye");
+    if (clicks === 0) {
+      setClicks(5);
+      setDisabled(false);
+    } else {
       setClicks(clicks - 1);
     }
   };
@@ -74,39 +83,42 @@ export default function ViewFortunes() {
   //   }
 
   return (
-    <div className="navigation">
-      <nav>
-        <Link to="/Home">Home</Link>
-      </nav>
-      <h2>Welcome to the Fortune Teller!</h2>
-      <p>Click below to learn your fate. </p>
+    <>
+      <div className="navigation">
+        <nav>
+          <Link to="/Home">Home</Link>
+        </nav>
+        <h2>Welcome to the Fortune Teller!</h2>
+        <p>Click below to learn your fate. </p>
+        <img className="token" alt="token pic" src="token.png" width="50" />
 
-      <p>Tokens Left: {clicks}</p>
-      <div id="fortune-container">
-        <div id="RandomFortunesOnDemand">
-          {/* <button onClick={handleClick}>Get Fortune</button> */}
-          <p>
-            <span style={{ fontWeight: "bold" }}>Fortune:</span>{" "}
-            {randomFortune?.fortune}{" "}
-          </p>
-          <p>
-            <span style={{ fontWeight: "bold" }}>Lucky Color:</span>{" "}
-            {randomFortune?.color}
-          </p>
-          <p>{randomFortune?.message}</p>
-        </div>
-        <input
-          id="crystal-ball"
-          type="image"
-          alt="click me"
-          src="crystalball.png"
-          width="600"
-          height="600"
-          name="ballBtn"
-          onClick={handleClick}
-          disabled={disabled}
-        ></input>
-        {/* <div id="make-a-fortune">
+        <p>Tokens Left: {clicks}</p>
+
+        <div id="fortune-container">
+          <div id="RandomFortunesOnDemand">
+            {/* <button onClick={handleClick}>Get Fortune</button> */}
+            <p>
+              <span style={{ fontWeight: "bold" }}>Fortune:</span>{" "}
+              {randomFortune?.fortune}{" "}
+            </p>
+            <p>
+              <span style={{ fontWeight: "bold" }}>Lucky Color:</span>{" "}
+              {randomFortune?.color}
+            </p>
+            <p>{randomFortune?.message}</p>
+          </div>
+          <input
+            id="crystal-ball"
+            type="image"
+            alt="click me"
+            src="crystalball.png"
+            width="600"
+            height="600"
+            name="ballBtn"
+            onClick={handleClick}
+            disabled={disabled}
+          ></input>
+          {/* <div id="make-a-fortune">
           <Link to="/createFortunes">
             <img
               className="ball"
@@ -117,27 +129,28 @@ export default function ViewFortunes() {
             <p id="smallCrystal-text">?</p>
           </Link>
         </div> */}
-
-        <div id="make-a-fortune-two">
-          <Link to="/addFortune">
-            <img
-              className="ball"
-              alt="crystal-ball"
-              src="smallcrystal.png"
-              width="100"
-            />
-            <p id="smallCrystal-text">I am a Oracle</p>
-          </Link>
-        </div>
-        {/*  <img
+          {/*  Hiding small crystal ball to make a fortune
+          <div id="make-a-fortune-two">
+            <Link to="/addFortune">
+              <img
+                className="ball"
+                alt="crystal-ball"
+                src="smallcrystal.png"
+                width="100"
+              />
+              <p id="smallCrystal-text">I am a Oracle</p>
+            </Link>
+          </div>
+          */}{" "}
+          {/*  <img
           className="ball"
           alt="crystal-ball"
           src="crystalball.png"
           width="600"
           height="600"
         /> */}
-      </div>
-      {/*  <div id="all fortunes">
+        </div>
+        {/*  <div id="all fortunes">
         {fortunes.map((fortune) => (
           <ol>
             <p style={{ fontWeight: "bold" }}>
@@ -148,7 +161,7 @@ export default function ViewFortunes() {
           </ol>
         ))}
       </div> */}
-      {/*   <div id="fortune-drink">
+        {/*   <div id="fortune-drink">
         <h2>Your Lucky Drink:</h2>
         {drinks.map((drink) => (
           <ol>
@@ -167,6 +180,20 @@ export default function ViewFortunes() {
           </ol>
         ))}
       </div> */}
-    </div>
+      </div>
+      <div id="more-tokens">
+        <span>Hit the bullseye to get more Tokens!</span>
+
+        <input
+          type="image"
+          id="duck-bullseye"
+          className="duck"
+          alt="duck-target"
+          src="duck.png"
+          width="100"
+          onClick={duckClick}
+        />
+      </div>
+    </>
   );
 }
