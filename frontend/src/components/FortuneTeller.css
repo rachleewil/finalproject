@@ -10,12 +10,41 @@
 
 #RandomFortunesOnDemand {
   position: absolute;
-  top: 40%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: black;
   /* text-shadow: 0 0 3px purple; */
   font-size: 18px;
+}
+
+#pagetitle {
+  margin-top: 50px;
+}
+
+.tokensection{
+  position: absolute;
+  left: 65%;
+}
+
+#tokens {
+  position: absolute;
+  top: 70px;
+  /* left: 50%; */
+  transform: translate(40%, -50%);
+}
+
+#clicks {
+  font-size: 30px;
+}
+
+#moretokens {
+  margin-bottom: 100px;
+  left: 50%;
+}
+
+#duckbullseye {
+  margin-top: 20px;
 }
 
 @media only screen and (max-width: 600px) {

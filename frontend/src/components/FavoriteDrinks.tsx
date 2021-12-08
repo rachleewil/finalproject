@@ -1,6 +1,7 @@
 import { Favorites } from "../context/FavoritesContext";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import "./FavoriteDrinks.css";
 
 export default function FavoritesList() {
   const { addToFavorites, removeFromFavorites, favoritesList } =

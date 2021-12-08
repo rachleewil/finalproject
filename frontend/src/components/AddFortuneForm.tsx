@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import FortuneCookie from "../models/Fortune";
 import { createFortune } from "../services/Fortunes";
 import FormInput from "./FormInputFortunes";
-import Home from "./Home";
 
 interface Props {
   initialTo?: string;
@@ -36,7 +35,7 @@ function AddShoutOutForm({ initialTo = "", onAdd }: Props) {
         <h2>Create a Fortune</h2>
         <p>Someone's fate is in your hands. You are in control now.</p>
         <FormInput
-          label="Fortune:"
+          label="Fortune"
           id="AddShoutOutForm__to"
           value={fortune}
           onChange={setFortune}
@@ -58,11 +57,11 @@ function AddShoutOutForm({ initialTo = "", onAdd }: Props) {
             value={message}
             onChange={(e) => setMsg(e.target.value)}
             minLength={2}
-            rows={1}
+            rows={3}
           />
         </p>
         <p>
-          <button id="submitbutton"> Submit Fortune!</button>
+          <button id="submitbutton">Submit Fortune</button>
         </p>
       </form>
     </>
