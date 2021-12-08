@@ -1,9 +1,6 @@
 import React from "react";
 import "./NavBar.css";
 import { Link } from "react-router-dom";
-{
-  /* added Link */
-}
 
 function NavBar() {
   return (
@@ -12,20 +9,19 @@ function NavBar() {
         <div className="NavBar">
           <div>
             <a>
-              <h1>
-                <Link to="/Home">AFTER HOURS CARNIVAL</Link>
-              </h1>
+              <Link to="/home"><img src="tent.png" id="NavIcon" width="60" height="60"/></Link>
             </a>
+            <h1 id="websitetitle">AFTER HOURS CARNIVAL</h1>
           </div>
           <div className="NavBarLinks">
             <a>
-              <Link to="/favorites">Favorites</Link>
+              <Link to="/home">Carnival</Link>
             </a>
             <a>
-              <Link to="/addfortune">Add Fortune</Link>
+              <Link to="/favorites">Favorite Drinks</Link>
             </a>
             <a>
-              <Link to="/">Sign Out</Link>
+              <Link to="/addfortune">Create Fortune</Link>
             </a>
           </div>
         </div>
@@ -35,3 +31,4 @@ function NavBar() {
 }
 
 export default NavBar;
+

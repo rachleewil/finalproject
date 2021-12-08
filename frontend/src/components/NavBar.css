@@ -1,12 +1,16 @@
 .NavBar {
     padding: 10px 40px 40px 40px;
-    background-color: #282c34;
+    background-color: #130000;
     color: white;  
 }
 
-/* .NavIcon {
-    padding-right: 1300px;
-} */
+#NavIcon {
+    padding-right: 1700px;
+}
+
+#websitetitle {
+    margin-top: -40px;
+}
 
 .NavBarLinks {
     display: flex;
@@ -22,9 +26,14 @@ a:link {
 }
 
 a:visited {
-    color: rgba(255, 0, 0);
+    color: red;
 }
 
 a:hover {
     color: white;
 } 
+
+h1 {
+    color: white;
+    word-spacing: 7px; 
+}
