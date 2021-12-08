@@ -41,9 +41,9 @@ export default function ViewDrinks() {
     <>
       <div>
         <div>
-          <h2>Tipsy Time</h2>
+          <h2 id="pagetitle">Tipsy Time</h2>
           {drinks.map((cocktail) => (
-            <ol>
+            <div>
               <p style={{ fontWeight: "bold" }}>Enjoy a {cocktail.strDrink}!</p>
               <a
                 target="_blank"
@@ -56,14 +56,8 @@ export default function ViewDrinks() {
                   alt="cocktail"
                 />
               </a>
-              {thisCocktailIsAFavorite ? (
-                <button
-                  className="addButton"
-                  onClick={() => removeFromFavorites(cocktail?.idDrink!)}
-                >
-                  Remove Favorite
-                </button>
-              ) : (
+              <br></br>
+           
                 <button
                   onClick={() => {
                     console.log(cocktail);
@@ -75,14 +69,12 @@ export default function ViewDrinks() {
                 >
                   Add to Favorites
                 </button>
-              )}
-            </ol>
+            </div>
           ))}
         </div>
+        <button onClick={handleClick}>Barkeep <br></br> Another Drink!</button>
       </div>
-      <div>
-        <button onClick={handleClick}>Barkeep! Another Drink!</button>
-      </div>
+  
     </>
   );
 }

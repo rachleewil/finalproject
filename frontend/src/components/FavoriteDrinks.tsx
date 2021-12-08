@@ -9,11 +9,11 @@ export default function FavoritesList() {
   console.log(favoritesList);
   return (
     <div>
-      <h2>Your Favorite Drinks</h2>
-      <ul>
+      <h2 id="pagetitle">Your Favorite Drinks</h2>
+      <p id="content">Below are your favorite drinks. If you would like to favorite a new drink go to the bar.</p>
+      <div>
         {favoritesList.map((favorite, index) => (
-          <li key={index}>
-            {/* <Link to={"/" + favorite.idDrink}> */}
+          <div key={index}>
             <a
               target="_blank"
               href={"https://www.thecocktaildb.com/drink/" + favorite.idDrink}
@@ -22,17 +22,17 @@ export default function FavoritesList() {
               <img src={favorite.strDrinkThumb + "/preview"} alt="drink" />
             </a>
             <h3>{favorite.strDrink}</h3>
-            {/* </Link> */}
-            <button
+            
+            <button id="removebutton"
               onClick={() => {
                 removeFromFavorites(favorite.idDrink);
               }}
             >
               Remove
             </button>
-          </li>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 }

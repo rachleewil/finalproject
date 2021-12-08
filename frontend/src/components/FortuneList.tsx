@@ -3,7 +3,6 @@ import FortuneCookie from "../models/Fortune";
 import { fetchFortunes, createFortune } from "../services/Fortunes";
 import { Link } from "react-router-dom";
 import "./FortuneList.css";
-/* import './ShoutOutList.css'; */
 
 interface Props {
   shoutOuts: FortuneCookie[];
