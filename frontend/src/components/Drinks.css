@@ -1,0 +1,18 @@
+#pagetitle {
+    margin-top: 50px;
+}
+
+button {
+    font-family: 'Montserrat';
+    font-size: 16px;
+    background-color: #FF3B2A;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    height: 40px;
+    width: 130px;
+    margin-top: 30px;
+    text-align: center;
+}
+

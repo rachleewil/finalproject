@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  fireEvent,
-  getByAltText,
-  render,
-  screen,
-} from "@testing-library/react";
+import { fireEvent, getByAltText, render, screen } from "@testing-library/react";
 import Home from "./Home";
 import App from "../App";
 
