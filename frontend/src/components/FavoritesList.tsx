@@ -27,7 +27,7 @@ export default function FavoritesList() {
                 removeFromFavorites(favorite.idDrink);
               }}
             >
-              Remove Favorite
+              Remove
             </button>
           </li>
         ))}

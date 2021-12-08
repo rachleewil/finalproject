@@ -50,7 +50,7 @@ export default function ViewFortunes() {
       setClicks(5);
       setDisabled(false);
     } else {
-      setClicks(clicks - 1);
+      setClicks(clicks);
     }
   };
 
@@ -85,9 +85,6 @@ export default function ViewFortunes() {
   return (
     <>
       <div className="navigation">
-        <nav>
-          <Link to="/Home">Home</Link>
-        </nav>
         <h2>Welcome to the Fortune Teller!</h2>
         <p>Click below to learn your fate. </p>
         <img className="token" alt="token pic" src="token.png" width="50" />
@@ -98,19 +95,22 @@ export default function ViewFortunes() {
           <div id="RandomFortunesOnDemand">
             {/* <button onClick={handleClick}>Get Fortune</button> */}
             <p>
-              <span style={{ fontWeight: "bold" }}>Fortune:</span>{" "}
+              <span style={{ fontWeight: "bold" }}>Fortune: </span>{" "}
               {randomFortune?.fortune}{" "}
             </p>
             <p>
-              <span style={{ fontWeight: "bold" }}>Lucky Color:</span>{" "}
+              <span style={{ fontWeight: "bold" }}>Lucky Color: </span>{" "}
               {randomFortune?.color}
             </p>
-            <p>{randomFortune?.message}</p>
+            <p>
+              <span style={{ fontWeight: "bold" }}>Message: </span>{" "}
+              {randomFortune?.message}
+            </p>
           </div>
           <input
             id="crystal-ball"
             type="image"
-            alt="click me"
+            alt="cyrstalball"
             src="crystalball.png"
             width="600"
             height="600"
@@ -118,71 +118,10 @@ export default function ViewFortunes() {
             onClick={handleClick}
             disabled={disabled}
           ></input>
-          {/* <div id="make-a-fortune">
-          <Link to="/createFortunes">
-            <img
-              className="ball"
-              alt="crystal-ball"
-              src="smallcrystal.png"
-              width="100"
-            />
-            <p id="smallCrystal-text">?</p>
-          </Link>
-        </div> */}
-          {/*  Hiding small crystal ball to make a fortune
-          <div id="make-a-fortune-two">
-            <Link to="/addFortune">
-              <img
-                className="ball"
-                alt="crystal-ball"
-                src="smallcrystal.png"
-                width="100"
-              />
-              <p id="smallCrystal-text">I am a Oracle</p>
-            </Link>
-          </div>
-          */}{" "}
-          {/*  <img
-          className="ball"
-          alt="crystal-ball"
-          src="crystalball.png"
-          width="600"
-          height="600"
-        /> */}
         </div>
-        {/*  <div id="all fortunes">
-        {fortunes.map((fortune) => (
-          <ol>
-            <p style={{ fontWeight: "bold" }}>
-              Your Fortune is {fortune.fortune}
-            </p>
-            <p>color: {fortune.color}</p>
-            <p>number: {fortune.number}</p>
-          </ol>
-        ))}
-      </div> */}
-        {/*   <div id="fortune-drink">
-        <h2>Your Lucky Drink:</h2>
-        {drinks.map((drink) => (
-          <ol>
-            <p style={{ fontWeight: "bold" }}>{drink.strDrink}!</p>
-            <a
-              target="_blank"
-              href={"https://www.thecocktaildb.com/drink/" + drink.idDrink}
-              rel="noreferrer"
-            >
-              <img
-                className="drinkImg"
-                src={drink.strDrinkThumb + "/preview"}
-                alt="cocktail"
-              />
-            </a>
-          </ol>
-        ))}
-      </div> */}
       </div>
       <div id="more-tokens">
-        <span>Hit the bullseye to get more Tokens!</span>
+        <span>Hit the bullseye for 5 more Tokens!</span>
 
         <input
           type="image"

@@ -9,7 +9,7 @@ function Home() {
 
       <div id="drinksection">
         <h2 >Let's Drink!</h2>
-        <p>Go ahead and enjoy a delicious cocktail beverage.</p>
+        <p>Go ahead and enjoy a delicious cocktail beverage at the bar.</p>
         <Link to="/drinks">
           <img
             className="drinks"
