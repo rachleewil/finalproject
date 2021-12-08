@@ -10,7 +10,7 @@ import Favorites from "./components/Favorites";
 import PostFortunes from "./components/PostFortune";
 import FavoritesList from "./components/FavoritesList";
 import FavoritesProvider from "./context/FavoritesContext";
-import AddFortuneFormRoute from "./components/routes/AllFortunesRoutes";
+import AddFortuneFormRoute from "./components/AllFortunesRoutes";
 
 function App() {
   return (

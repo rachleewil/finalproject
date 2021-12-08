@@ -4,6 +4,8 @@ import { fetchRandomDrink } from "../services/Drinks";
 // import { FavoritesContext, useFavoritesContext } from "../context/DrinkFavorites";
 import { Favorites } from "../context/FavoritesContext";
 import { Link } from "react-router-dom";
+import "./Drinks.css";
+
 
 export default function ViewDrinks() {
   const [drinks, setDrinks] = useState<Drink[]>([]);
@@ -38,9 +40,6 @@ export default function ViewDrinks() {
   return (
     <>
       <div>
-        <nav>
-          <Link to="/home">Home</Link>
-        </nav>
         <div>
           <h2>Tipsy Time</h2>
           {drinks.map((cocktail) => (

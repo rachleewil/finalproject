@@ -1,5 +1,6 @@
 import React, { ReactNode, useState } from "react";
 import { Drink } from "../models/Drink";
+
 interface FavoritesProps {
   addToFavorites: (cocktail: Drink) => void;
   removeFromFavorites: (idDrink: string) => void;
