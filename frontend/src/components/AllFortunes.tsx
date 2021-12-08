@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./AllFortuneRoutes.css";
+import "./AllFortunes.css";
 import AddFortuneForm from "./AddFortuneForm";
 import FortuneList from "./FortuneList";
 import FortuneCookie from "../models/Fortune";

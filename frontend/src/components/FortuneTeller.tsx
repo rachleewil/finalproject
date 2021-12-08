@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Carnival.css";
+import "./FortuneTeller.css";
 import FortuneCookie from "../models/Fortune";
 import { fetchFortunes } from "../services/Fortunes";
 import { Link } from "react-router-dom";
@@ -85,11 +85,14 @@ export default function ViewFortunes() {
   return (
     <>
       <div className="navigation">
-        <h2>Welcome to the Fortune Teller!</h2>
+        <h2 id="pagetitle">Welcome to the Fortune Teller!</h2>
         <p>Click below to learn your fate. </p>
-        <img className="token" alt="token pic" src="token.png" width="50" />
 
-        <p>Tokens Left: {clicks}</p>
+        <div className="tokensection">
+          <img alt="token" src="normToken.png" width="170"/>
+          <p id="tokens"><b>Tokens Left:</b> <br></br>
+          <div id="clicks">{clicks}</div></p>
+        </div>
 
         <div id="fortune-container">
           <div id="RandomFortunesOnDemand">
@@ -120,12 +123,12 @@ export default function ViewFortunes() {
           ></input>
         </div>
       </div>
-      <div id="more-tokens">
-        <span>Hit the bullseye for 5 more Tokens!</span>
+      <div id="moretokens">
+        <span>Hit the bullseye for 5 more Tokens! <em>(You must be at 0 Tokens)</em></span>
 
         <input
           type="image"
-          id="duck-bullseye"
+          id="duckbullseye"
           className="duck"
           alt="duck-target"
           src="duck.png"
