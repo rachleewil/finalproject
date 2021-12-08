@@ -13,19 +13,13 @@
 #background {
   background: no-repeat center bottom;   
   background-size: 1280px 600px;
-  margin-top: -100px;
-}
-
-
-#hometitle {
-  font-size: 32px;
-  margin-top: 30px;
+  margin-top: -110px;
 }
 
 #fortunesection {
   margin-right: 700px;
   /* margin-top: -300px;  */
- margin-top: -320px;
+  margin-top: -320px;
 }
 
 .fortunes {
@@ -38,6 +32,7 @@
 
 #drinksection {
   margin-left: 700px;
+  margin-top: 30px;
 }
 
 .drinks {
@@ -48,9 +43,16 @@
   border-radius: 50%;
 }
 
+h1{
+  font-size: 32px;
+  margin-top: 30px;
+  font-family: cursive;
+  color: #FF3B2A;
+}
+
 h2 {
   font-family: cursive;
-  color: rgba(255, 0, 0);
+  color: #FF3B2A;
 }
 
 p {

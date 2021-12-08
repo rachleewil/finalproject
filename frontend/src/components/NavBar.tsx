@@ -6,29 +6,37 @@ function NavBar() {
   return (
     <>
       <nav>
-        <div className="NavBar">
-          <div>
+        <ul>
+          <li>
             <a>
-              <Link to="/home"><img src="tent.png" id="NavIcon" width="60" height="60"/></Link>
+              <Link to="/home"><img src="tent.png" width="400px" height="60px"/></Link>
             </a>
-            <h1 id="websitetitle">AFTER HOURS CARNIVAL</h1>
+          </li>
+          <div id="navlinks">
+            <li>
+              <a>
+                <Link to="/home">Carnival</Link>
+              </a>
+            </li>
+            <li>
+              <a>
+                <Link to="/favorites">Favorite Drinks</Link>
+              </a>
+            </li>
+            <li>
+              <a>
+                <Link to="/addfortune">Create Fortune</Link>
+              </a>
+            </li>
           </div>
-          <div className="NavBarLinks">
-            <a>
-              <Link to="/home">Carnival</Link>
-            </a>
-            <a>
-              <Link to="/favorites">Favorite Drinks</Link>
-            </a>
-            <a>
-              <Link to="/addfortune">Create Fortune</Link>
-            </a>
-          </div>
-        </div>
+        </ul>
       </nav>
     </>
   );
 }
+
+
+
 
 export default NavBar;
 
