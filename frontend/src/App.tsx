@@ -6,8 +6,6 @@ import LoginForm from "./components/LoginForm";
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
 import ViewDrinks from "./components/Drinks";
-import Favorites from "./components/Favorites";
-import PostFortunes from "./components/PostFortune";
 import FavoritesList from "./components/FavoriteDrinks";
 import FavoritesProvider from "./context/FavoritesContext";
 import AddFortuneFormRoute from "./components/AllFortunes";
@@ -24,8 +22,7 @@ function App() {
             <Route path="/fortunes" element={<ViewFortunes />} />
             <Route path="/drinks" element={<ViewDrinks />} />
             <Route path="/favorites" element={<FavoritesList />} />
-            <Route path="/createFortunes" element={<PostFortunes />} />
-            <Route path="/addfortune" element={<AddFortuneFormRoute />} />
+            <Route path="/createfortune" element={<AddFortuneFormRoute />} />
           </Routes>
         </FavoritesProvider>
       </Router>
