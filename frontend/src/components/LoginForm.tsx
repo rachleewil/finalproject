@@ -1,248 +1,217 @@
-import React, { useReducer, useEffect } from "react";
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import { stringify } from "querystring";
+import { FormEvent, useEffect, useState } from "react";
+import { login } from "../services/auth.service";
+import { useNavigate } from "react-router-dom";
+import { Formik } from "formik";
 
-import TextField from "@material-ui/core/TextField";
-import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
-import CardActions from "@material-ui/core/CardActions";
-import CardHeader from "@material-ui/core/CardHeader";
-import Button from "@material-ui/core/Button";
-import { Link } from "react-router-dom";
+//Login Box
+function LoginForm() {
+  
+  let navigate = useNavigate();
+ 
+  // const [state, setState] = useState(({
+  //   username: "",
+  //   password: ""
+  // }));
+  // const [password, setPassword] = useState("");
+  // const [login, setLogin] = useState("");
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    container: {
-      display: "flex",
-      flexWrap: "wrap",
-      width: 400,
-      margin: `${theme.spacing(0)} auto`,
-    },
-    loginBtn: {
-      marginTop: theme.spacing(2),
-      flexGrow: 1,
-    },
-    header: {
-      textAlign: "center",
-      background: "#212121",
-      color: "#fff",
-    },
-    card: {
-      marginTop: theme.spacing(10),
-    },
-  })
-);
+  
+// const initialValues = {
+//   username: "",
+//   password: ""
+// };
 
-//state type
-
-type State = {
+const initialValues: {
   username: string;
   password: string;
-  isButtonDisabled: boolean;
-  helperText: string;
-  isError: boolean;
-};
-
-const initialState: State = {
+} = {
   username: "",
   password: "",
-  isButtonDisabled: true,
-  helperText: "",
-  isError: false,
 };
 
-type Action =
-  | { type: "setUsername"; payload: string }
-  | { type: "setPassword"; payload: string }
-  | { type: "setIsButtonDisabled"; payload: boolean }
-  | { type: "loginSuccess"; payload: string }
-  | { type: "loginFailed"; payload: string }
-  | { type: "setIsError"; payload: boolean };
+  //useEffect(() => setState(initialValues));
 
-const reducer = (state: State, action: Action): State => {
-  switch (action.type) {
-    case "setUsername":
-      return {
-        ...state,
-        username: action.payload,
-      };
-    case "setPassword":
-      return {
-        ...state,
-        password: action.payload,
-      };
-    case "setIsButtonDisabled":
-      return {
-        ...state,
-        isButtonDisabled: action.payload,
-      };
-    case "loginSuccess":
-      return {
-        ...state,
-        helperText: action.payload,
-        isError: false,
-      };
-    case "loginFailed":
-      return {
-        ...state,
-        helperText: action.payload,
-        isError: true,
-      };
-    case "setIsError":
-      return {
-        ...state,
-        isError: action.payload,
-      };
-  }
-};
+  // const handleLogin = (formValue: { username: string; password: string }) => {
+  //   const { username, password } = formValue;
+  //   login(username, password).then(
+  //     () => {
+  //       navigate("/home");
+      
 
-const LoginForm = () => {
-  const classes = useStyles();
-  const [state, dispatch] = useReducer(reducer, initialState);
+        const handleLogin = (formValue: { username: string; password: string }) => {
+          const { username, password } = formValue;
+    
+          login(username, password).then(
+            () => {
+              navigate("/home");
+              //window.location.reload();
+            },
+          );
+        };
 
-  useEffect(() => {
-    if (state.username.trim() && state.password.trim()) {
-      dispatch({
-        type: "setIsButtonDisabled",
-        payload: false,
-      });
-    } else {
-      dispatch({
-        type: "setIsButtonDisabled",
-        payload: true,
-      });
-    }
-  }, [state.username, state.password]);
+  // function handleSubmit(e: FormEvent) {
+  //   e.preventDefault();
+  //   login(username, password).then(
+  //     () => {
+  //       navigate("/home");
+  //       //window.location.reload();
+  //     }
+  //   )}
+    // setState({username: (document.getElementById("username") as HTMLInputElement).value, 
+    //           password: (document.getElementById("password") as HTMLInputElement).value})
+    
 
-  const handleLogin = () => {
-    if (state.username === "abc@email.com" && state.password === "password") {
-      dispatch({
-        type: "loginSuccess",
-        payload: "Login Successfully",
-      });
-    } else {
-      dispatch({
-        type: "loginFailed",
-        payload: "Incorrect username or password",
-      });
-    }
-  };
-
-  const handleKeyPress = (event: React.KeyboardEvent) => {
-    if (event.keyCode === 13 || event.which === 13) {
-      state.isButtonDisabled || handleLogin();
-    }
-  };
-
-  const handleUsernameChange: React.ChangeEventHandler<HTMLInputElement> = (
-    event
-  ) => {
-    dispatch({
-      type: "setUsername",
-      payload: event.target.value,
-    });
-  };
-
-  const handlePasswordChange: React.ChangeEventHandler<HTMLInputElement> = (
-    event
-  ) => {
-    dispatch({
-      type: "setPassword",
-      payload: event.target.value,
-    });
-  };
   return (
-    <form className={classes.container} noValidate autoComplete="off">
-      <Card className={classes.card}>
-        <CardHeader className={classes.header} title="Login App" />
-        <CardContent>
-          <div>
-            <TextField
-              error={state.isError}
-              fullWidth
+    <>
+    <Formik
+      initialValues={initialValues}
+      onSubmit={handleLogin}
+    ></Formik>
+      <div className="inner-container">
+        <div className="header">
+          Login
+        </div>
+        <div className="box">
+
+          <div className="input-group">
+            <label htmlFor="username">Username </label>
+            <input
+              type="text"
               id="username"
-              type="email"
-              label="Username"
-              placeholder="Username"
-              margin="normal"
-              onChange={handleUsernameChange}
-              onKeyPress={handleKeyPress}
-            />
-            <TextField
-              error={state.isError}
-              fullWidth
-              id="password"
-              type="password"
-              label="Password"
-              placeholder="Password"
-              margin="normal"
-              helperText={state.helperText}
-              onChange={handlePasswordChange}
-              onKeyPress={handleKeyPress}
-            />
+              name="username"
+              className="login-input"
+              placeholder="Username"/>
           </div>
-        </CardContent>
-        <CardActions>
-          <Button
-            variant="contained"
-            size="large"
-            color="secondary"
-            className={classes.loginBtn}
-            onClick={handleLogin}
-            disabled={state.isButtonDisabled}
-          >
-            Login
-          </Button>
-        </CardActions>
-      </Card>
-    </form>
-  );
-};
 
-export default LoginForm;
+          <div className="input-group">
+            <label htmlFor="password">Password </label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              className="login-input"
+              placeholder="Password"/>
+          </div>
+    
+          <button
+            type="submit"
+            className="login-btn">Login</button>
+        </div>
+      </div>
+    </>
+  )
+  }
 
-// import { FormEvent, useEffect, useState } from "react";
-// import { Users } from "../models/Users";
-// import { fetchUser } from "../services/Users";
-// import FormInput from "./FormInput";
+  export default LoginForm;
 
-// interface Props {
-//   initialTo?: string;
-//   //onAdd?: (user: Users) => void
-// }
+// import React, { useState } from "react";
+// import { Formik, Field, Form, ErrorMessage } from "formik";
+// import * as Yup from "yup";
 
-// function LoginForm({ initialTo = "" }: Props) {
-//   const [ username, setUsername ] = useState(initialTo);
-//   const [ password, setPassword ] = useState("");
-//   const [ legal, setLegal ] = useState(true);
+// import { login } from "../services/auth.service";
+// import { useNavigate } from "react-router-dom"
 
-//   useEffect(() => setUsername(initialTo), [initialTo]);
 
-//   function handleSubmit(e: FormEvent) {
-//     e.preventDefault();
-//     fetchUser().then();
-//     setUsername(initialTo);
-//     setPassword("");
-//     setLegal(true);
-//   }
+// const LoginForm: React.FC = () => {
+//   const [loading, setLoading] = useState<boolean>(false);
+//   const [message, setMessage] = useState<string>("");
 
-//   const handleChange = () => {
-//     setLegal(!legal);
+//   const initialValues: {
+//     username: string;
+//     password: string;
+//   } = {
+//     username: "",
+//     password: "",
+//   };
+
+//   const validationSchema = Yup.object().shape({
+//     username: Yup.string().required("This field is required!"),
+//     password: Yup.string().required("This field is required!"),
+//   });
+
+//   const handleLogin = (formValue: { username: string; password: string }) => {
+//     const { username, password } = formValue;
+
+//     let navigate = useNavigate()
+
+//     setMessage("");
+//     setLoading(true);
+
+//     login(username, password).then(
+//       () => {
+//         navigate("/home");
+//         //window.location.reload();
+//       },
+//       (error) => {
+//         const resMessage =
+//           (error.response &&
+//             error.response.data &&
+//             error.response.data.message) ||
+//           error.message ||
+//           error.toString();
+
+//         setLoading(false);
+//         setMessage(resMessage);
+//       }
+//     );
 //   };
 
 //   return (
-//     <form className="SignInForm" onSubmit={handleSubmit}>
-//       <h2>Time to Sign In</h2>
-//       <FormInput label="Username" id="username" value={username} onChange={setUsername} required minLength={2}/>
-//       <FormInput label="Password" id="password" value={password} onChange={setPassword} required minLength={2}/>
-//       <p className="FormInput">
-//         <label htmlFor="checkbox">Are you over the age of 21</label>
-//         <input type="checkbox" id="checkbox" checked={legal}  onChange={handleChange}/>
-//       </p>
-//       <p>
-//         <button>Sign In</button>
-//       </p>
-//     </form>
+//     <div className="col-md-12">
+//       <div className="card card-container">
+//         <img
+//           src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+//           alt="profile-img"
+//           className="profile-img-card"
+//         />
+//         <Formik
+//           initialValues={initialValues}
+//           validationSchema={validationSchema}
+//           onSubmit={handleLogin}
+//         >
+//           <Form>
+//             <div className="form-group">
+//               <label htmlFor="username">Username</label>
+//               <Field name="username" type="text" className="form-control" />
+//               <ErrorMessage
+//                 name="username"
+//                 component="div"
+//                 className="alert alert-danger"
+//               />
+//             </div>
+
+//             <div className="form-group">
+//               <label htmlFor="password">Password</label>
+//               <Field name="password" type="password" className="form-control" />
+//               <ErrorMessage
+//                 name="password"
+//                 component="div"
+//                 className="alert alert-danger"
+//               />
+//             </div>
+
+//             <div className="form-group">
+//               <button type="submit" className="btn btn-primary btn-block" disabled={loading}>
+//                 {loading && (
+//                   <span className="spinner-border spinner-border-sm"></span>
+//                 )}
+//                 <span>Login</span>
+//               </button>
+//             </div>
+
+//             {message && (
+//               <div className="form-group">
+//                 <div className="alert alert-danger" role="alert">
+//                   {message}
+//                 </div>
+//               </div>
+//             )}
+//           </Form>
+//         </Formik>
+//       </div>
+//     </div>
 //   );
-// }
+// };
 
 // export default LoginForm;
