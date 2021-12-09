@@ -1,7 +1,7 @@
 import axios from "axios";
 import FortuneCookie from "../models/Fortune";
 
-const baseUrl = "http://localhost:5001/carnival-app-b84f4/us-central1/api";
+const baseUrl = "https://us-central1-carnival-app-b84f4.cloudfunctions.net/api";
 //const baseUrl = "http://localhost:5001/carnival-app-b84f4/us-central1/api";
 
 export async function fetchFortunes(): Promise<FortuneCookie[]> {
