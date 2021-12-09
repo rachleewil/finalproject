@@ -25,7 +25,7 @@ function NavBar() {
             </li>
             <li>
               <a>
-                <Link to="/addfortune">Create Fortune</Link>
+                <Link to="/createfortune">Create Fortune</Link>
               </a>
             </li>
           </div>
