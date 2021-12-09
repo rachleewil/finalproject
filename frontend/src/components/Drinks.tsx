@@ -41,7 +41,8 @@ export default function ViewDrinks() {
     <>
       <div>
         <div>
-          <h2 id="pagetitle">Tipsy Time</h2>
+          <h2 id="pagetitle">Welcome to Tipsy Time!</h2>
+          <p>Select drink image for full recipe.</p>
           {drinks.map((cocktail) => (
             <div>
               <p style={{ fontWeight: "bold" }}>Enjoy a {cocktail.strDrink}!</p>
