@@ -28,7 +28,7 @@ function App() {
             <Route path="/fortunes" element={<ViewFortunes />} />
             <Route path="/drinks" element={<ViewDrinks />} />
             <Route path="/favorites" element={<FavoritesList />} />
-            <Route path="*" element={<Navigate to="home/" />} />
+            <Route path="*" element={<Navigate to="home" />} />
             <Route path="/createfortune" element={<AddFortuneFormRoute />} />
           </Routes>
         </FavoritesProvider>
