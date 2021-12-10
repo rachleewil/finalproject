@@ -1,6 +1,12 @@
 import React from "react";
 import "./App.css";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  useParams,
+  Navigate,
+} from "react-router-dom";
 import ViewFortunes from "./components/FortuneTeller";
 import LoginForm from "./components/LoginForm";
 import NavBar from "./components/NavBar";
@@ -22,6 +28,7 @@ function App() {
             <Route path="/fortunes" element={<ViewFortunes />} />
             <Route path="/drinks" element={<ViewDrinks />} />
             <Route path="/favorites" element={<FavoritesList />} />
+            <Route path="*" element={<Navigate to="home" />} />
             <Route path="/createfortune" element={<AddFortuneFormRoute />} />
           </Routes>
         </FavoritesProvider>
