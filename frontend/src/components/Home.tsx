@@ -31,12 +31,11 @@ function Home() {
         </Link>
       </div>
 
-      <div id="background">
+      <div>
           <img
+            className="background"
             src="carnival.png"
             alt="carnival background image"
-            width="1280"
-            height="600"
           />
       </div>
     </div>

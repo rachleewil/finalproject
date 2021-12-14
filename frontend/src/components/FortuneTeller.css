@@ -2,6 +2,10 @@
   background-image: url(http://localhost:3000/starsBG.jpg);
 }*/
 
+#crystal-ball {
+  margin-bottom: 50px;
+}
+
 #fortune-container {
   position: relative;
   text-align: center;
@@ -45,20 +49,92 @@
 
 #duckbullseye {
   margin-top: 20px;
+  margin-bottom: 100px;
 }
 
-@media only screen and (max-width: 600px) {
-  /* For tablets: */
+@media only screen and (max-width: 1500px) {
   #crystal-ball {
-    width: 450px;
-    height: 450px;
+    width: 550px;
+    height: 550px;
+  }
+
+  .tokensection{
+    left: 73%;
+  }
+
+  #tokenimage {
+    width: 160px;
   }
 }
 
-@media only screen and (max-width: 500px) {
-  /* For mobile phones: */
+@media only screen and (max-width: 920px) {
   #crystal-ball {
-    width: 300px;
-    height: 300px;
+    width: 475px;
+    height: 475px;
+  }
+
+  .tokensection{
+    left: 80%;
+  }
+
+  #tokenimage {
+    width: 150px;
+  }
+  
+  #tokens {
+    transform: translate(30%, -60%);
   }
 }
+
+
+@media only screen and (max-width: 760px) {
+  #crystal-ball {
+    width: 375px;
+    height: 375px;
+    margin-top: 150px;
+  }
+
+  .tokensection{
+    left: 40%;
+  }
+  
+  #tokenimage {
+    width: 140px;
+  }
+
+  #RandomFortunesOnDemand {
+    top: 60%;
+  }
+
+  #tokens {
+    margin-top: 10px; 
+    transform: translate(35%, -75%);
+    top: 80px;
+    font-size: 14px;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .tokensection{
+    left: 34%;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  #crystal-ball {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .tokensection{
+    left: 31%;
+  }
+
+  #RandomFortunesOnDemand {
+    font-size: 13px;
+  }
+  #tokens {
+    transform: translate(35%, -80%);
+  }
+}
+

@@ -73,7 +73,7 @@ export default function ViewDrinks() {
             </div>
           ))}
         </div>
-        <button onClick={handleClick}>Barkeep <br></br> Another Drink!</button>
+        <button id="anotherdrink" onClick={handleClick}>Barkeep <br></br> Another Drink!</button>
       </div>
   
     </>
