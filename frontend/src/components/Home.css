@@ -1,20 +1,18 @@
-#background {
+.background {
   background: no-repeat center bottom;   
-  background-size: 1280px 600px;
   margin-top: -110px;
+  width: 1280px;
+  height: 600px;
 }
 
 #fortunesection {
   margin-right: 700px;
-  /* margin-top: -300px;  */
   margin-top: -320px;
 }
 
 .fortunes {
   width: 300px;
   height: 200px;
-  /* margin-right: 700px; */
-  /* margin-top: -500px;  */
   border-radius: 50%;
 }
 
@@ -26,8 +24,6 @@
 .drinks {
   width: 300px;
   height: 200px;
-  /* margin-left: 300px; */
-  /* margin-top: -200px; */
   border-radius: 50%;
 }
 

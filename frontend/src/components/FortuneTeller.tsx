@@ -89,7 +89,7 @@ export default function ViewFortunes() {
         <p>Click below to learn your fate. </p>
 
         <div className="tokensection">
-          <img alt="token" src="normToken.png" width="170"/>
+          <img id="tokenimage" alt="token" src="normToken.png" width="170"/>
           <p id="tokens"><b>Tokens Left:</b> <br></br>
           <div id="clicks">{clicks}</div></p>
         </div>
@@ -123,9 +123,9 @@ export default function ViewFortunes() {
           ></input>
         </div>
       </div>
-      <div id="moretokens">
-        <span>Hit the bullseye for 5 more Tokens! <em>(You must be at 0 Tokens)</em></span>
+      <span id="moretokens"> Hit the bullseye for 5 more Tokens! <em>(You must be at 0 Tokens)</em></span>
 
+      <div>
         <input
           type="image"
           id="duckbullseye"

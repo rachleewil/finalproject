@@ -38,7 +38,7 @@ routes.get("/fortunecookie", async (req, res) => {
 });
 //localhost:5001/carnival-app-b84f4/us-central1/api/fortunecookie?id=61a30a8c220033503f65a2
 //http://localhost:5001/carnival-app-b84f4/us-central1/api/fortunecookie/61a30a8c220033503f65a2f6
-http: routes.get("/fortunecookie/:id", async (req, res) => {
+routes.get("/fortunecookie/:id", async (req, res) => {
   const id = req.params.id;
   try {
     const client = await getClient();

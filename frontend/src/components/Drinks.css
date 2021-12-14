@@ -16,3 +16,9 @@ button {
     text-align: center;
 }
 
+@media only screen and (min-width: 20px) {
+    #anotherdrink {
+        margin-bottom: 100px;
+    }
+}
+
