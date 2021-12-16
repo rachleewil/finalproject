@@ -1,7 +1,7 @@
 import axios from "axios";
 
-//const API_URL = "http://localhost:8080/api/auth/";
 const baseUrl = "https://us-central1-carnival-app-b84f4.cloudfunctions.net/api";
+// const API_URL = "http://localhost:8080/api/auth/";
 
 export const login = (username: string, password: string) => {
   return axios
