@@ -1,19 +1,18 @@
-h1{
+h1 {
   font-size: 32px;
   margin-top: 30px;
   font-family: cursive;
-  color: #FF3B2A;
+  color: #ff3b2a;
 }
 
 h2 {
   font-family: cursive;
-  color: #FF3B2A;
+  color: #ff3b2a;
 }
 
 p {
   font-style: italic;
 }
-
 
 @media only screen and (max-width: 1300px) {
   .background {
