@@ -98,16 +98,16 @@ export default function ViewFortunes() {
           <div id="RandomFortunesOnDemand">
             {/* <button onClick={handleClick}>Get Fortune</button> */}
             <p>
-              <span style={{ fontWeight: "bold" }}>Fortune: </span>{" "}
-              {randomFortune?.fortune}{" "}
+              <span style={{ fontWeight: "bold" }}>Fortune: {" "}
+              {randomFortune?.fortune}</span>
             </p>
             <p>
-              <span style={{ fontWeight: "bold" }}>Lucky Color: </span>{" "}
-              {randomFortune?.color}
+              <span style={{ fontWeight: "bold" }}>Lucky Color: {" "}
+              {randomFortune?.color}</span>
             </p>
             <p>
-              <span style={{ fontWeight: "bold" }}>Message: </span>{" "}
-              {randomFortune?.message}
+              <span style={{ fontWeight: "bold" }}>Message: {" "}
+              {randomFortune?.message}</span>
             </p>
           </div>
           <input
@@ -122,19 +122,19 @@ export default function ViewFortunes() {
             disabled={disabled}
           ></input>
         </div>
-      </div>
-      <span id="moretokens"> Hit the bullseye for 5 more Tokens! <em>(You must be at 0 Tokens)</em></span>
+        <span id="moretokens"> Hit the bullseye for 5 more Tokens! <br></br><em>(You must be at 0 Tokens)</em></span>
 
-      <div>
-        <input
-          type="image"
-          id="duckbullseye"
-          className="duck"
-          alt="duck-target"
-          src="duck.png"
-          width="100"
-          onClick={duckClick}
-        />
+        <div>
+          <input
+            type="image"
+            id="duckbullseye"
+            className="duck"
+            alt="duck-target"
+            src="duck.png"
+            width="100"
+            onClick={duckClick}
+          />
+        </div>
       </div>
     </>
   );

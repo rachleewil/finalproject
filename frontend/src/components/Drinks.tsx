@@ -75,7 +75,6 @@ export default function ViewDrinks() {
         </div>
         <button id="anotherdrink" onClick={handleClick}>Barkeep <br></br> Another Drink!</button>
       </div>
-  
     </>
   );
 }
